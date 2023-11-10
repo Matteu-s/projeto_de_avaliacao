@@ -31,7 +31,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :mobile02
       t.string :phone01
       t.string :phone02
-
+      t.boolean :active, default: true
+      
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
