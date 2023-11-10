@@ -1,2 +1,10 @@
-<%= button_to("Log Out", destroy_user_session_path, method: :delete) %>
-Hello World
+<nav class="navbar-default navbar-static-side d-print-none" role="navigation">
+  <div class="sidebar-collapse">
+    <ul class="nav metismenu" id="side-menu"> 
+      <%= button_to("Sair", destroy_user_session_path, method: :delete) %>
+      <li class="sidebar-item">
+        <%= link_to 'Usuarios', users_path %>
+      </li>
+    </ul>
+  </div>
+</nav>
