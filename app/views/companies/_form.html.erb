@@ -1,0 +1,102 @@
+<%= form_with(model: company) do |form| %>
+  <% if company.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+        <% company.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name_fantasy, style: "display: block" %>
+    <%= form.text_field :name_fantasy %>
+  </div>
+
+  <div>
+    <%= form.label :corporate_reason, style: "display: block" %>
+    <%= form.text_field :corporate_reason %>
+  </div>
+
+  <div>
+    <%= form.label :cnpj, style: "display: block" %>
+    <%= form.text_field :cnpj %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :zip_code, style: "display: block" %>
+    <%= form.text_field :zip_code %>
+  </div>
+
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :address_number, style: "display: block" %>
+    <%= form.text_field :address_number %>
+  </div>
+
+  <div>
+    <%= form.label :complement, style: "display: block" %>
+    <%= form.text_field :complement %>
+  </div>
+
+  <div>
+    <%= form.label :state, style: "display: block" %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div>
+    <%= form.label :city, style: "display: block" %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div>
+    <%= form.label :neighbourhood, style: "display: block" %>
+    <%= form.text_field :neighbourhood %>
+  </div>
+
+  <div>
+    <%= form.label :country, style: "display: block" %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div>
+    <%= form.label :mobile01, style: "display: block" %>
+    <%= form.text_field :mobile01 %>
+  </div>
+
+  <div>
+    <%= form.label :mobile02, style: "display: block" %>
+    <%= form.text_field :mobile02 %>
+  </div>
+
+  <div>
+    <%= form.label :phone01, style: "display: block" %>
+    <%= form.text_field :phone01 %>
+  </div>
+
+  <div>
+    <%= form.label :phone02, style: "display: block" %>
+    <%= form.text_field :phone02 %>
+  </div>
+
+  <div>
+    <%= form.label :active, style: "display: block" %>
+    <%= form.check_box :active %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

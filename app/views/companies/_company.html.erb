@@ -1,25 +1,21 @@
-<div id="<%= dom_id user %>">
+<div id="<%= dom_id company %>">
   <p>
-    <strong>Nome</strong>
-    <%= user.name %>
+    <strong>Nome Fantasia:</strong>
+    <%= company.name_fantasy %>
   </p>
   <p>
-    <strong>E-mail</strong>
-    <%= user.email %>
+    <strong>Razão Social</strong>
+    <%= company.corporate_reason %>
   </p>
   <p>
-    <strong>CPF:</strong>
-    <%= user.cpf %>
+    <strong>CNPJ:</strong>
+    <%= company.cnpj %>
   </p>
   <p>
-    <strong>RG:</strong>
-    <%= user.rg %>
+    <strong>E-mail:</strong>
+    <%= company.email %>
   </p>
   <p>
-    <strong>Data de Nascimento:</strong>
-    <%= user.dob %>
-  </p>
-   <p>
     <strong>CEP:</strong>
     <%= company.zip_code %>
   </p>
@@ -68,7 +64,7 @@
     <%= company.phone02 %>
   </p>
   <p>
-    <strong>Ativo?:</strong>
+    <strong>Ativa?</strong>
     <%= company.active %>
   </p>
 </div>
