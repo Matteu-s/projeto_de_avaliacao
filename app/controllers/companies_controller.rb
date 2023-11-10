@@ -23,7 +23,7 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to company_url(@company), notice: 'Empresa criada com sucesso!' }
+        format.html { redirect_to company_path(@company), notice: 'Empresa criada com sucesso!' }
         format.json { render :show, status: :created, location: @company }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +36,7 @@ class CompaniesController < ApplicationController
   def update
     respond_to do |format|
       if @company.update(company_params)
-        format.html { redirect_to company_url(@company), notice: 'Empresa atualizada com sucesso!' }
+        format.html { redirect_to company_path(@company), notice: 'Empresa atualizada com sucesso!' }
         format.json { render :show, status: :ok, location: @company }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class CompaniesController < ApplicationController
     @company.destroy
 
     respond_to do |format|
-      format.html { redirect_to companies_url, notice: 'Empresa excluída com sucesso!' }
+      format.html { redirect_to companies_path, notice: 'Empresa excluída com sucesso!' }
       format.json { head :no_content }
     end
   end
@@ -65,7 +65,7 @@ class CompaniesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def company_params
     params.require(:company).permit(:name_fantasy, :corporate_reason, :cnpj, :email, :zip_code, :address,
-                                    :address_number, :complement, :state, :city, :neighbourhood, :country, 
+                                    :address_number, :complement, :state, :city, :neighbourhood, :country,
                                     :mobile01, :mobile02, :phone01, :phone02, :active)
   end
 end
