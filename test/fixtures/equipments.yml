@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  serial_number: MyString
+  date_of_acquisition: 2023-11-10 18:24:54
+  cost: MyString
+  state: 1
+  last_maintenance: 2023-11-10 18:24:54
+  current_responsible: MyString
+  delivery_date_responsible: 2023-11-10 18:24:54
+
+two:
+  name: MyString
+  serial_number: MyString
+  date_of_acquisition: 2023-11-10 18:24:54
+  cost: MyString
+  state: 1
+  last_maintenance: 2023-11-10 18:24:54
+  current_responsible: MyString
+  delivery_date_responsible: 2023-11-10 18:24:54

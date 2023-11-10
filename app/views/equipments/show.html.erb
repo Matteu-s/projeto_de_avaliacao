@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @equipment %>
+
+<div>
+  <%= link_to "Editar Equipamento", edit_equipment_path(@equipment) %> |
+  <%= link_to "Voltar para Equipamentos", equipments_path %>
+
+  <%= button_to "Excluir Equipamento", @equipment, method: :delete %>
+</div>
