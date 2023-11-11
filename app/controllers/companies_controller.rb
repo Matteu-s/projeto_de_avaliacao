@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: %i[show edit update destroy]
+  before_action :set_company, only: %i[show edit update destroy delete_logo]
 
   # GET /companies or /companies.json
   def index
@@ -55,6 +55,15 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def delete_logo
+    @company.logo.purge
+    if @company.logo.attached?
+      redirect_to @company, notice: 'Não foi possível excluir a logo, tente novamente!'
+    else
+      redirect_to @company, notice: 'Logo excluída com sucesso!'
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -64,7 +73,7 @@ class CompaniesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def company_params
-    params.require(:company).permit(:name_fantasy, :corporate_reason, :cnpj, :email, :zip_code, :address,
+    params.require(:company).permit(:logo, :name_fantasy, :corporate_reason, :cnpj, :email, :zip_code, :address,
                                     :address_number, :complement, :state, :city, :neighbourhood, :country,
                                     :mobile01, :mobile02, :phone01, :phone02, :active)
   end

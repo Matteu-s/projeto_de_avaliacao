@@ -1,5 +1,12 @@
 <div id="<%= dom_id company %>">
   <p>
+    <% if company.logo.attached? %>
+      <%= image_tag(company.logo, width: 50, height: 50) %>
+    <% else %>
+      Logo não encontrada
+    <% end %>
+  </p>
+  <p>
     <strong>Nome Fantasia:</strong>
     <%= company.name_fantasy %>
   </p>

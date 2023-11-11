@@ -1,4 +1,4 @@
-<%= form_with(model: company) do |form| %>
+<%= form_with(model: company, multipart: true) do |form| %>
   <% if company.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
@@ -10,6 +10,16 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="field">
+    <% if @company.logo.attached? %>
+      <%= form.label :logo %>
+      <%= link_to 'Excluir logo', delete_logo_company_path(company), data: {turbo_method: :delete, turbo_confirm: 'Tem certeza que deseja excluir a logo?' } %>
+    <% else %>
+      <%= form.label :logo %>
+      <%= form.file_field :logo %>
+    <% end %>
+  </div>
 
   <div>
     <%= form.label :name_fantasy, style: "display: block" %>
