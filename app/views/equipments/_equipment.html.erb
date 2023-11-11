@@ -3,40 +3,36 @@
     <strong>Nome:</strong>
     <%= equipment.name %>
   </p>
-
   <p>
     <strong>Número de Série:</strong>
     <%= equipment.serial_number %>
   </p>
-
   <p>
     <strong>Data de Aquisição:</strong>
     <%= equipment.date_of_acquisition %>
   </p>
-
   <p>
     <strong>Custo:</strong>
     <%= equipment.cost %>
   </p>
-
   <p>
     <strong>Status:</strong>
     <%= equipment.state %>
   </p>
-
   <p>
     <strong>Última Manunteção:</strong>
     <%= equipment.last_maintenance %>
   </p>
-
   <p>
     <strong>Responsável Atual:</strong>
     <%= equipment.current_responsible %>
   </p>
-
   <p>
     <strong>Entregue ao atual responsável em:</strong>
     <%= equipment.delivery_date_responsible %>
   </p>
-
+  <p>
+    <strong>Percente a empresa</strong>
+    <%= equipment.company.corporate_reason %>
+  </p>
 </div>

@@ -52,6 +52,11 @@
   </div>
 
   <div>
+    <%= form.label :company, style: "display: block" %>
+    <%= form.select :company_id, options_for_select(@companies_options, selected: @equipment.company_id), {}, class: 'form-control' %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

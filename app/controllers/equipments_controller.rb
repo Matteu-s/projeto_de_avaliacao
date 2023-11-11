@@ -12,10 +12,13 @@ class EquipmentsController < ApplicationController
   # GET /equipments/new
   def new
     @equipment = Equipment.new
+    @companies_options = companies_options
   end
 
   # GET /equipments/1/edit
-  def edit; end
+  def edit
+    @companies_options = companies_options
+  end
 
   # POST /equipments or /equipments.json
   def create
@@ -62,9 +65,15 @@ class EquipmentsController < ApplicationController
     @equipment = Equipment.find(params[:id])
   end
 
+  def companies_options
+    Company.where(active: true).order(:corporate_reason).map do |company|
+      ["#{company.corporate_reason}(#{company.cnpj})", company.id]
+    end
+  end
+
   # Only allow a list of trusted parameters through.
   def equipment_params
     params.require(:equipment).permit(:name, :serial_number, :date_of_acquisition, :cost, :state, :last_maintenance,
-                                      :current_responsible, :delivery_date_responsible)
+                                      :current_responsible, :delivery_date_responsible, :company_id)
   end
 end

@@ -9,6 +9,7 @@ class CreateEquipments < ActiveRecord::Migration[7.0]
       t.datetime :last_maintenance
       t.string :current_responsible
       t.datetime :delivery_date_responsible
+      t.references :company, type: :uuid, null: false, foreign_key: true
 
       t.timestamps
     end
