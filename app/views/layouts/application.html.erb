@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR" data-bs-theme="auto">
   <head>
     <title>ProjetoDeAvaliacao</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#712cf9">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
+    <%= stylesheet_link_tag 'bootstrap.min', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="d-flex align-items-center py-4 bg-body-tertiary">
+    
+    <%= render 'layouts/change_theme' %>
     <%= yield %>
   </body>
 </html>
