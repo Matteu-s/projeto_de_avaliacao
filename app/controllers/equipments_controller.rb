@@ -3,7 +3,7 @@ class EquipmentsController < ApplicationController
 
   # GET /equipments or /equipments.json
   def index
-    @equipments = Equipment.all
+    @equipments = Equipment.page(params[:page]).per(10)
   end
 
   # GET /equipments/1 or /equipments/1.json

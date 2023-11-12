@@ -8,6 +8,7 @@
         <th>Nome</th>
         <th>E-mail</th>
         <th>Criado em</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -27,5 +28,7 @@
     </tbody>
   </table>
 </div>
+<%= paginate @users %>
+
 
 <%= link_to "Novo usuário", new_user_path, class: "btn btn-success" %>

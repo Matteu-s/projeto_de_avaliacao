@@ -9,6 +9,7 @@
         <th>Razão Social</th>
         <th>CNPJ</th>
         <th>Criado em</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -28,5 +29,6 @@
     </tbody>
   </table>
 </div>
+<%= paginate @companies %>
 
 <%= link_to "Nova Empresa", new_company_path, class: "btn btn-success" %>

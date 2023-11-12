@@ -11,6 +11,7 @@
         <th>Responsável Atual</th>
         <th>Percente a</th>
         <th>Criado em</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -32,5 +33,6 @@
     </tbody>
   </table>
 </div>
+<%= paginate @equipments %>
 
 <%= link_to "Novo Equipamento", new_equipment_path, class: "btn btn-success" %>
