@@ -17,8 +17,8 @@
         <tr>
           <td><%= company.name_fantasy %></td>
           <td><%= company.corporate_reason %></td>
-          <td><%= company.cnpj %></td>
-          <td><%= company.created_at %></td>
+          <td><%= cnpj_formatted(company.cnpj) %></td>
+          <td><%= date_formatted(company.created_at) %></td>
           <td>
             <%= link_to "Exibir", company, class: "btn btn-primary btn-sm" %>
             <%= link_to "Editar", edit_company_path(company), class: "btn btn-warning btn-sm" %>
@@ -28,5 +28,5 @@
       <% end %>
     </tbody>
   </table>
+  <%= paginate @companies %>
 </div>
-<%= paginate @companies %>

@@ -1,10 +1,10 @@
+<h1>Empresa: <%= @company.corporate_reason %></h1>
 <p style="color: green"><%= notice %></p>
 
 <%= render @company %>
 
 <div>
-  <%= link_to "Editar Empresa", edit_company_path(@company) %> |
-  <%= link_to "Voltar para Empresas", companies_path %>
-
-  <%= button_to "Excluir Empresa", @company, method: :delete %>
+  <%= link_to "Voltar para empresas", companies_path, class: 'btn btn-secondary' %> |
+  <%= link_to "Editar empresa", edit_company_path(@company), class: 'btn btn-warning' %> |
+  <%= link_to 'Excluir empresa', @company, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger"%>
 </div>

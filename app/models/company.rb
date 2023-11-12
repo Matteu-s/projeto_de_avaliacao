@@ -29,6 +29,8 @@ class Company < ApplicationRecord
 
   validate :logo_size
 
+  validates :corporate_reason, :cnpj, presence: true
+
   private
 
   def logo_size

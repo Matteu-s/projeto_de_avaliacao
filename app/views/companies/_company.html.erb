@@ -1,77 +1,86 @@
 <div id="<%= dom_id company %>">
-  <p>
-    <% if company.logo.attached? %>
-      <%= image_tag(company.logo, width: 50, height: 50) %>
-    <% else %>
-      Logo não encontrada
-    <% end %>
-  </p>
-  <p>
-    <strong>Nome Fantasia:</strong>
-    <%= company.name_fantasy %>
-  </p>
-  <p>
-    <strong>Razão Social</strong>
-    <%= company.corporate_reason %>
-  </p>
-  <p>
-    <strong>CNPJ:</strong>
-    <%= company.cnpj %>
-  </p>
-  <p>
-    <strong>E-mail:</strong>
-    <%= company.email %>
-  </p>
-  <p>
-    <strong>CEP:</strong>
-    <%= company.zip_code %>
-  </p>
-  <p>
-    <strong>Endereço:</strong>
-    <%= company.address %>
-  </p>
-  <p>
-    <strong>Número:</strong>
-    <%= company.address_number %>
-  </p>
-  <p>
-    <strong>Complemento:</strong>
-    <%= company.complement %>
-  </p>
-  <p>
-    <strong>Estado:</strong>
-    <%= company.state %>
-  </p>
-  <p>
-    <strong>Cidade:</strong>
-    <%= company.city %>
-  </p>
-  <p>
-    <strong>Bairro:</strong>
-    <%= company.neighbourhood %>
-  </p>
-  <p>
-    <strong>País:</strong>
-    <%= company.country %>
-  </p>
-  <p>
-    <strong>Celular 1:</strong>
-    <%= company.mobile01 %>
-  </p>
-  <p>
-    <strong>Celular 2:</strong>
-    <%= company.mobile02 %>
-  </p>
-  <p>
-    <strong>Telefone 1:</strong>
-    <%= company.phone01 %>
-  </p>
-  <p>
-    <strong>Telefone 2:</strong>
-    <%= company.phone02 %>
-  </p>
-  <p>
-    <strong>Ativa?</strong>
-    <%= company.active %>
-  </p>
+  <div class="ibox-content">
+    <div class="row">
+      <div class="col-lg-3">
+        <% if company.logo.attached? %>
+          <h5>Logo</h5>
+          <%= image_tag(company.logo, width: 50, height: 50) %>
+        <% else %>
+          Logo não encontrada
+        <% end %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Nome Fantasia:</h5>
+        <%= company.name_fantasy %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Razão Social:</h5>
+        <%= company.corporate_reason %>
+      </div>
+      <div class="col-lg-3">
+        <h5>CNPJ:</h5>
+        <%= cnpj_formatted(company.cnpj) %>
+      </div>
+      <div class="col-lg-3">
+        <h5>E-mail:</h5>
+        <%= company.email %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Celular 1:</h5>
+        <%= mobile_formatted(company.mobile01) %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Celular 1:</h5>
+        <%= mobile_formatted(company.mobile01) %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Celular 1:</h5>
+        <%= mobile_formatted(company.mobile01) %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Celular 2:</h5>
+        <%= mobile_formatted(company.mobile02) %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Telefone 1:</h5>
+        <%= phone_formatted(company.phone01) %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Telefone 2:</h5>
+        <%= phone_formatted(company.phone02) %>
+      </div>
+      <div class="col-lg-3">
+        <h5>CEP:</h5>
+        <%= zip_code_formatted(company.zip_code) %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Endereço:</h5>
+        <%= company.address %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Número:</h5>
+        <%= company.address_number %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Complemento:</h5>
+        <%= company.complement %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Estado:</h5>
+        <%= company.state %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Cidade:</h5>
+        <%= company.city %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Bairro:</h5>
+        <%= company.neighbourhood %>
+      </div>
+      <div class="col-lg-3">
+        <h5>País:</h5>
+        <%= company.country %>
+      </div>
+    </div>
+  </div>
 </div>
