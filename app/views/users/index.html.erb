@@ -1,14 +1,31 @@
+<h1>Usuários</h1>
 <p style="color: green"><%= notice %></p>
 
-<h1>Users</h1>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Criado em</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.created_at %></td>
+          <td>
+            <%= link_to "Exibir", user, class: "btn btn-primary btn-sm" %>
+            <%= link_to "Editar", edit_company_path(user), class: "btn btn-warning btn-sm" %>
+            <%= link_to 'Excluir', user, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-sm"%>
 
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Exibir Usuário", user %>
-    </p>
-  <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "Novo Usuário", new_user_path %>
+<%= link_to "Novo usuário", new_user_path, class: "btn btn-success" %>

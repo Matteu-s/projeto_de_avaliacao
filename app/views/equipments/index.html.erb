@@ -1,14 +1,36 @@
+<h1>Equipamentos</h1>
 <p style="color: green"><%= notice %></p>
 
-<h1>Equipamentos</h1>
-
-<div id="equipments">
-  <% @equipments.each do |equipment| %>
-    <%= render equipment %>
-    <p>
-      <%= link_to "Mostrar Equipamento", equipment %>
-    </p>
-  <% end %>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Número de Série</th>
+        <th>Status</th>
+        <th>Responsável Atual</th>
+        <th>Percente a</th>
+        <th>Criado em</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @equipments.each do |equipment| %>
+        <tr>
+          <td><%= equipment.name %></td>
+          <td><%= equipment.serial_number %></td>
+          <td><%= equipment.state %></td>
+          <td><%= equipment.current_responsible %></td>
+          <td><%= equipment.company.corporate_reason %></td>
+          <td><%= equipment.created_at %></td>
+          <td>
+            <%= link_to "Exibir", equipment, class: "btn btn-primary btn-sm" %>
+            <%= link_to "Editar", edit_company_path(equipment), class: "btn btn-warning btn-sm" %>
+            <%= link_to 'Excluir', equipment, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-sm"%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "Novo Equipamento", new_equipment_path %>
+<%= link_to "Novo Equipamento", new_equipment_path, class: "btn btn-success" %>

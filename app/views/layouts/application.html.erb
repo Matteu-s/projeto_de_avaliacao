@@ -14,9 +14,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="d-flex align-items-center py-4 bg-body-tertiary">
-    
-    <%= render 'layouts/change_theme' %>
-    <%= yield %>
-  </body>
+  <body>
+   <%= render 'layouts/change_theme' %>
+   <div class="d-flex flex-row">
+      <%= render 'layouts/sidebar' if current_user %>
+    <div class="flex-grow-3">
+      <%= yield %>
+      <%= render 'layouts/footer' if current_user %>
+    </div>
+</body>
 </html>
