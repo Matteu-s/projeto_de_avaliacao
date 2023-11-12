@@ -65,7 +65,7 @@
       <hr class="my-3">
       <ul class="nav flex-column mb-auto">
         <li class="nav-item">
-          <%= link_to edit_user_path(current_user), class: "nav-link d-flex align-items-center gap-2 #{'active' if params[:controller] == 'equipments'}", 'aria-current': 'page' do %>
+          <%= link_to edit_user_path(current_user), class: "nav-link d-flex align-items-center gap-2", 'aria-current': 'page' do %>
             <svg class="bi pe-none me-2" width="16" height="16">
               <use xlink:href="#gear-wide-connected"/>
             </svg>
@@ -73,7 +73,7 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to  destroy_user_session_path, data: {turbo_method: :delete }, class: "nav-link d-flex align-items-center gap-2 #{'active' if params[:controller] == 'equipments'}", 'aria-current': 'page' do %>
+          <%= link_to  destroy_user_session_path, data: {turbo_method: :delete }, class: "nav-link d-flex align-items-center gap-2", 'aria-current': 'page' do %>
             <svg class="bi pe-none me-2" width="16" height="16">
               <use xlink:href="#door-closed"/>
             </svg>

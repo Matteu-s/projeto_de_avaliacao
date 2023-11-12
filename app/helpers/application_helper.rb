@@ -48,4 +48,12 @@ module ApplicationHelper
     zip_code = zip_code.gsub(/\D/, '')
     "#{zip_code[0..4]}-#{zip_code[5..8]}"
   end
+
+  def name_cnpj(company)
+    return '' if company.cnpj.blank? || company.corporate_reason.blank?
+
+    cnpj = cnpj_formatted(company.cnpj.gsub(/\D/, ''))
+
+    "#{company.corporate_reason} <#{cnpj}>"
+  end
 end

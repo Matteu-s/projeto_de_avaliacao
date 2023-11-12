@@ -2,7 +2,6 @@
   <% if equipment.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
-
       <ul>
         <% equipment.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,48 +9,42 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.text_field :name, label: 'Nome'%>
-  </div>
-
-  <div>
-    <%= form.text_field :serial_number, label: 'Número de Série' %>
-  </div>
-
-  <div>
-    <%= form.datetime_field :date_of_acquisition, label: 'Data de Aquisição' %>
-  </div>
-
-  <div>
-    <%= form.text_field :cost, label: 'Custo' %>
-  </div>
-
-  <div>
-    <%= form.number_field :state, label: 'Status' %>
-  </div>
-
-  <div>
-    <%= form.datetime_field :last_maintenance, label: 'Última Manuntenção' %>
-  </div>
-
-  <div>
-    <%= form.text_field :current_responsible, label: 'Responsável Atual' %>
-  </div>
-
-  <div>
-    <%= form.datetime_field :delivery_date_responsible, label: 'Data de Entrega ao Responsável' %>
-  </div>
-
-  <div>
-    <%= form.select :company_id, options_for_select(@companies_options, selected: @equipment.company_id), {}, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <% if equipment.new_record? %>
-      <%= form.submit "Criar Equipamento", class: 'btn btn-primary' %>
-    <% else %>
-      <%= form.submit "Atualizar Equipamento", class: 'btn btn-primary' %>
-    <% end %>
+  <div class="ibox-content">
+    <div class="row">
+      <div class="col-lg-3">
+        <%= form.text_field :name, label: 'Nome' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :serial_number, label: 'Número de Série' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.datetime_field :date_of_acquisition, label: 'Data de Aquisição' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :cost, label: 'Custo' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.number_field :state, label: 'Status' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.datetime_field :last_maintenance, label: 'Última Manuntenção' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :current_responsible, label: 'Responsável Atual' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.datetime_field :delivery_date_responsible, label: 'Data de Entrega ao Responsável' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.select :company_id, options_for_select(@companies_options, selected: @equipment.company_id), {}, class: 'form-control' %>
+      </div>
+      <div>
+        <% if equipment.new_record? %>
+          <%= form.submit "Criar Equipamento", class: 'btn btn-success' %>
+        <% else %>
+          <%= form.submit "Atualizar Equipamento", class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
   </div>
 <% end %>

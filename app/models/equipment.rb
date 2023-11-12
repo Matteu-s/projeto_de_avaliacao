@@ -17,4 +17,10 @@
 #
 class Equipment < ApplicationRecord
   belongs_to :company
+
+  enum state: {
+    available: 0,
+    unavailable: 1,
+    maintenance: 2
+  }
 end

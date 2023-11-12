@@ -22,11 +22,11 @@
           <td><%= equipment.serial_number %></td>
           <td><%= equipment.state %></td>
           <td><%= equipment.current_responsible %></td>
-          <td><%= equipment.company.corporate_reason %></td>
-          <td><%= equipment.created_at %></td>
+          <td><%= name_cnpj(equipment.company) %></td>
+          <td><%= date_formatted(equipment.created_at) %></td>
           <td>
             <%= link_to "Exibir", equipment, class: "btn btn-primary btn-sm" %>
-            <%= link_to "Editar", edit_company_path(equipment), class: "btn btn-warning btn-sm" %>
+            <%= link_to "Editar", edit_equipment_path(equipment), class: "btn btn-warning btn-sm" %>
             <%= link_to 'Excluir', equipment, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-sm"%>
           </td>
         </tr>

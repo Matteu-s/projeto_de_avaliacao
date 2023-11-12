@@ -1,10 +1,11 @@
+<h1>Equipamento: <%= @equipment.name %></h1>
 <p style="color: green"><%= notice %></p>
 
 <%= render @equipment %>
 
 <div>
-  <%= link_to "Editar Equipamento", edit_equipment_path(@equipment) %> |
-  <%= link_to "Voltar para Equipamentos", equipments_path %>
-
-  <%= button_to "Excluir Equipamento", @equipment, method: :delete %>
+  <%= link_to "Voltar para equipamentos", equipments_path, class: 'btn btn-secondary' %> |
+  <%= link_to "Editar equipamento", edit_equipment_path(@equipment), class: 'btn btn-warning' %> |
+  <%= link_to 'Excluir equipamento', @equipment, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger"%>
 </div>
+

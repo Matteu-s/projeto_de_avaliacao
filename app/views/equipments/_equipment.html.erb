@@ -1,38 +1,42 @@
 <div id="<%= dom_id equipment %>">
-  <p>
-    <strong>Nome:</strong>
-    <%= equipment.name %>
-  </p>
-  <p>
-    <strong>Número de Série:</strong>
-    <%= equipment.serial_number %>
-  </p>
-  <p>
-    <strong>Data de Aquisição:</strong>
-    <%= equipment.date_of_acquisition %>
-  </p>
-  <p>
-    <strong>Custo:</strong>
-    <%= equipment.cost %>
-  </p>
-  <p>
-    <strong>Status:</strong>
-    <%= equipment.state %>
-  </p>
-  <p>
-    <strong>Última Manunteção:</strong>
-    <%= equipment.last_maintenance %>
-  </p>
-  <p>
-    <strong>Responsável Atual:</strong>
-    <%= equipment.current_responsible %>
-  </p>
-  <p>
-    <strong>Entregue ao atual responsável em:</strong>
-    <%= equipment.delivery_date_responsible %>
-  </p>
-  <p>
-    <strong>Percente a empresa</strong>
-    <%= equipment.company.corporate_reason %>
-  </p>
+  <div class="ibox-content">
+    <div class="row">
+      <div class="col-lg-3">
+        <h5>Nome:</h5>
+        <%= equipment.name %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Número de Série:</h5>
+        <%= equipment.serial_number %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Data de Aquisição:</h5>
+        <%= date_formatted(equipment.date_of_acquisition) %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Custo:</h5>
+        <%= equipment.cost %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Status:</h5>
+        <%= equipment.state %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Última Manunteção:</h5>
+        <%= date_formatted(equipment.last_maintenance) %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Responsável Atual:</h5>
+        <%= equipment.current_responsible  %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Entregue ao atual responsável em:</h5>
+        <%= datetime_formatted(equipment.delivery_date_responsible) %>
+      </div>
+      <div class="col-lg-3">
+        <h5>Percente a empresa:</h5>
+        <%= equipment.company.corporate_reason %>
+      </div>
+    </div>
+  </div>
 </div>
