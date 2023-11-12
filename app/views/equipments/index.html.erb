@@ -1,5 +1,6 @@
 <h1>Equipamentos</h1>
 <p style="color: green"><%= notice %></p>
+<%= link_to "Novo Equipamento", new_equipment_path, class: "btn btn-success" %>
 
 <div class="table-responsive">
   <table class="table table-striped">
@@ -34,5 +35,3 @@
   </table>
 </div>
 <%= paginate @equipments %>
-
-<%= link_to "Novo Equipamento", new_equipment_path, class: "btn btn-success" %>
