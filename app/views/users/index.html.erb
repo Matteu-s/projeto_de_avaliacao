@@ -7,6 +7,7 @@
       <tr>
         <th>Nome</th>
         <th>E-mail</th>
+        <th>CPF</th>
         <th>Criado em</th>
         <th></th>
       </tr>
@@ -16,12 +17,12 @@
         <tr>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
-          <td><%= user.created_at %></td>
+          <td><%= cpf_formatted(user.cpf) %></td>
+          <td><%= date_formatted(user.created_at) %></td>
           <td>
             <%= link_to "Exibir", user, class: "btn btn-primary btn-sm" %>
-            <%= link_to "Editar", edit_company_path(user), class: "btn btn-warning btn-sm" %>
-            <%= link_to 'Excluir', user, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-sm"%>
-
+            <%= link_to "Editar", edit_user_path(user), class: "btn btn-warning btn-sm" %>
+            <%= link_to 'Excluir', user, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-sm" %>
           </td>
         </tr>
       <% end %>

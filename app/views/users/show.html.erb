@@ -1,10 +1,11 @@
+<h1>Usuário: <%= @user.name %></h1>
+
 <p style="color: green"><%= notice %></p>
 
 <%= render @user %>
 
 <div>
-  <%= link_to "Editar Usuário", edit_user_path(@user) %> |
-  <%= link_to "Voltar para Usuários", users_path %>
-
-  <%= button_to "Excluir Usuário", @user, method: :delete %>
+  <%= link_to "Voltar para usuários", users_path, class: 'btn btn-secondary' %> |
+  <%= link_to "Editar usuário", edit_user_path(@user), class: 'btn btn-warning' %> |
+  <%= link_to 'Excluir usuário', @user, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger"%>
 </div>

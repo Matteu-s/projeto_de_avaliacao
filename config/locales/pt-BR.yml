@@ -1,4 +1,16 @@
 pt-BR:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: "confirme sua senha"
+            password:
+              too_short: "é muito curta. O comprimento mínimo é %{count} caracteres"
+              blank: "não pode ficar em branco"
+            email: 
+              taken: 'já está em uso'
   views:
     pagination:
       first: "&laquo; Primeira"

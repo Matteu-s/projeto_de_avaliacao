@@ -1,8 +1,7 @@
 <%= bootstrap_form_with(model: user) do |form| %>
   <% if user.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
+      <h2><%= pluralize(user.errors.count, "erro(s)") %> não permitiu que o usuário fosse salvo:</h2>
       <ul>
         <% user.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,88 +9,90 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.text_field :name, label: 'Nome' %>
-  </div>
-  
-  <div>
-    <%= form.text_field :email, label: 'E-mail', placeholder: "name@example.com" %>
-  </div>
-  
-  <div>
-    <%= form.password_field :password, label: 'Senha', placeholder: "Senha"%>
-  </div>  
-  
-  <div>
-    <%= form.password_field :password_confirmation, label: 'Confirmação de Senha', placeholder: "Digite novamente sua senha" %>
-  </div>
-
-  <div>
-    <%= form.text_field :cpf, label: 'CPF' %>
-  </div>
-
-  <div>
-    <%= form.text_field :rg, label: 'RG' %>
-  </div>
-
-  <div>
-    <%= form.date_field :dob, label: 'Data de Nascimento' %>
-  </div>
-
-  <div>
-    <%= form.text_field :zip_code, label: 'CEP' %>
-  </div>
-
-  <div>
-    <%= form.text_field :address, label: 'Endereço' %>
-  </div>
-
-  <div>
-    <%= form.text_field :address_number, label: 'Número' %>
-  </div>
-
-  <div>
-    <%= form.text_field :complement, label: 'Complemento' %>
-  </div>
-
-  <div>
-    <%= form.text_field :state, label: 'Estado' %>
-  </div>
-
-  <div>
-    <%= form.text_field :city, label: 'Cidade'  %>
-  </div>
-
-  <div>
-    <%= form.text_field :neighbourhood, label: 'Bairro' %>
-  </div>
-
-  <div>
-    <%= form.text_field :country, label: 'País' %>
-  </div>
-
-  <div>
-    <%= form.text_field :mobile01, label: 'Celular 1' %>
-  </div>
-
-  <div>
-    <%= form.text_field :mobile02, label: 'Celular 2' %>
-  </div>
-
-  <div>
-    <%= form.text_field :phone01, label: 'Telefone 1' %>
-  </div>
-
-  <div>
-    <%= form.text_field :phone02, label: 'Telefone 2' %>
-  </div>
-
-  <div class="form-group">
-    <% if user.new_record? %>
-      <%= form.submit "Criar Usuário", class: 'btn btn-primary' %>
-    <% else %>
-      <%= form.submit "Atualizar Usuário", class: 'btn btn-primary' %>
-    <% end %>
+  <div class="ibox-content">
+    <div class="row">
+      <div class="col-lg-3">
+        <%= form.text_field :name, label: 'Nome' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :email, label: 'E-mail', placeholder: "nome@example.com" %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.password_field :password, label: 'Senha', placeholder: "Senha" %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.password_field :password_confirmation, label: 'Confirmação de Senha', placeholder: "Digite novamente sua senha" %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :cpf, label: 'CPF', placeholder: "000.000.000-00" %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :rg, label: 'RG' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.date_field :dob, label: 'Data de Nascimento' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :mobile01, label: 'Celular 1', placeholder: "(00) 0.0000-0000" %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :mobile02, label: 'Celular 2', placeholder: "(00) 0.0000-0000" %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :phone01, label: 'Telefone 1', placeholder: "(00) 0000-0000" %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :phone02, label: 'Telefone 2', placeholder: "(00) 0000-0000"%>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :zip_code, label: 'CEP', placeholder: "00000-000"  %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :address, label: 'Endereço' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :address_number, label: 'Número' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :complement, label: 'Complemento' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :state, label: 'Estado' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :city, label: 'Cidade'  %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :neighbourhood, label: 'Bairro' %>
+      </div>
+      <div class="col-lg-3">
+        <%= form.text_field :country, label: 'País' %>
+      </div>
+      <div>
+        <% if user.new_record? %>
+          <%= form.submit "Criar Usuário", class: 'btn btn-success' %>
+        <% else %>
+          <%= form.submit "Atualizar Usuário", class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
   </div>
 <% end %>
+<script>
+  $(document).ready(function() {
+    $('#user_cpf').mask('000.000.000-00');
+    $('#user_zip_code').mask('00000-000');
+    $('#user_mobile01').mask('(00) 0.0000-0000');
+    $('#user_mobile02').mask('(00) 0.0000-0000');
+    $('#user_phone01').mask('(00) 0000-0000');
+    $('#user_phone02').mask('(00) 0000-0000');
+  });
+  $('form').submit(function() {
+    $('#user_cpf').unmask();
+    $('#user_zip_code').unmask();
+    $('#user_mobile01').unmask();
+    $('#user_mobile02').unmask();
+    $('#user_phone01').unmask();
+    $('#user_phone02').unmask();
+  });
+</script>
