@@ -1,4 +1,4 @@
-<%= form_with(model: equipment) do |form| %>
+<%= bootstrap_form_with(model: equipment) do |form| %>
   <% if equipment.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
@@ -12,51 +12,46 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, label: 'Nome'%>
   </div>
 
   <div>
-    <%= form.label :serial_number, style: "display: block" %>
-    <%= form.text_field :serial_number %>
+    <%= form.text_field :serial_number, label: 'Número de Série' %>
   </div>
 
   <div>
-    <%= form.label :date_of_acquisition, style: "display: block" %>
-    <%= form.datetime_field :date_of_acquisition %>
+    <%= form.datetime_field :date_of_acquisition, label: 'Data de Aquisição' %>
   </div>
 
   <div>
-    <%= form.label :cost, style: "display: block" %>
-    <%= form.text_field :cost %>
+    <%= form.text_field :cost, label: 'Custo' %>
   </div>
 
   <div>
-    <%= form.label :state, style: "display: block" %>
-    <%= form.number_field :state %>
+    <%= form.number_field :state, label: 'Status' %>
   </div>
 
   <div>
-    <%= form.label :last_maintenance, style: "display: block" %>
-    <%= form.datetime_field :last_maintenance %>
+    <%= form.datetime_field :last_maintenance, label: 'Última Manuntenção' %>
   </div>
 
   <div>
-    <%= form.label :current_responsible, style: "display: block" %>
-    <%= form.text_field :current_responsible %>
+    <%= form.text_field :current_responsible, label: 'Responsável Atual' %>
   </div>
 
   <div>
-    <%= form.label :delivery_date_responsible, style: "display: block" %>
-    <%= form.datetime_field :delivery_date_responsible %>
+    <%= form.datetime_field :delivery_date_responsible, label: 'Data de Entrega ao Responsável' %>
   </div>
 
   <div>
-    <%= form.label :company, style: "display: block" %>
     <%= form.select :company_id, options_for_select(@companies_options, selected: @equipment.company_id), {}, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <% if equipment.new_record? %>
+      <%= form.submit "Criar Equipamento", class: 'btn btn-primary' %>
+    <% else %>
+      <%= form.submit "Atualizar Equipamento", class: 'btn btn-primary' %>
+    <% end %>
   </div>
 <% end %>

@@ -1,4 +1,4 @@
-<%= form_with(model: user) do |form| %>
+<%= bootstrap_form_with(model: user) do |form| %>
   <% if user.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -12,101 +12,86 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, label: 'Nome' %>
   </div>
   
   <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, label: 'E-mail', placeholder: "name@example.com" %>
   </div>
   
   <div>
-    <%= form.label :password, style: "display: block" %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, label: 'Senha', placeholder: "Senha"%>
   </div>  
   
   <div>
-    <%= form.label :password_confirmation, style: "display: block" %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, label: 'Confirmação de Senha', placeholder: "Digite novamente sua senha" %>
   </div>
 
   <div>
-    <%= form.label :cpf, style: "display: block" %>
-    <%= form.text_field :cpf %>
+    <%= form.text_field :cpf, label: 'CPF' %>
   </div>
 
   <div>
-    <%= form.label :rg, style: "display: block" %>
-    <%= form.text_field :rg %>
+    <%= form.text_field :rg, label: 'RG' %>
   </div>
 
   <div>
-    <%= form.label :dob, style: "display: block" %>
-    <%= form.date_field :dob %>
+    <%= form.date_field :dob, label: 'Data de Nascimento' %>
   </div>
 
   <div>
-    <%= form.label :zip_code, style: "display: block" %>
-    <%= form.text_field :zip_code %>
+    <%= form.text_field :zip_code, label: 'CEP' %>
   </div>
 
   <div>
-    <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address, label: 'Endereço' %>
   </div>
 
   <div>
-    <%= form.label :address_number, style: "display: block" %>
-    <%= form.text_field :address_number %>
+    <%= form.text_field :address_number, label: 'Número' %>
   </div>
 
   <div>
-    <%= form.label :complement, style: "display: block" %>
-    <%= form.text_field :complement %>
+    <%= form.text_field :complement, label: 'Complemento' %>
   </div>
 
   <div>
-    <%= form.label :state, style: "display: block" %>
-    <%= form.text_field :state %>
+    <%= form.text_field :state, label: 'Estado' %>
   </div>
 
   <div>
-    <%= form.label :city, style: "display: block" %>
-    <%= form.text_field :city %>
+    <%= form.text_field :city, label: 'Cidade'  %>
   </div>
 
   <div>
-    <%= form.label :neighbourhood, style: "display: block" %>
-    <%= form.text_field :neighbourhood %>
+    <%= form.text_field :neighbourhood, label: 'Bairro' %>
   </div>
 
   <div>
-    <%= form.label :country, style: "display: block" %>
-    <%= form.text_field :country %>
+    <%= form.text_field :country, label: 'País' %>
   </div>
 
   <div>
-    <%= form.label :mobile01, style: "display: block" %>
-    <%= form.text_field :mobile01 %>
+    <%= form.text_field :mobile01, label: 'Celular 1' %>
   </div>
 
   <div>
-    <%= form.label :mobile02, style: "display: block" %>
-    <%= form.text_field :mobile02 %>
+    <%= form.text_field :mobile02, label: 'Celular 2' %>
   </div>
 
   <div>
-    <%= form.label :phone01, style: "display: block" %>
-    <%= form.text_field :phone01 %>
+    <%= form.text_field :phone01, label: 'Telefone 1' %>
   </div>
 
   <div>
-    <%= form.label :phone02, style: "display: block" %>
-    <%= form.text_field :phone02 %>
+    <%= form.text_field :phone02, label: 'Telefone 2' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <% if user.new_record? %>
+      <%= form.submit "Criar Usuário", class: 'btn btn-primary' %>
+    <% else %>
+      <%= form.submit "Atualizar Usuário", class: 'btn btn-primary' %>
+    <% end %>
   </div>
 <% end %>
