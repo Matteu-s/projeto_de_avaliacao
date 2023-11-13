@@ -63,10 +63,7 @@
         <%= form.text_field :city, label: 'Cidade'  %>
       </div>
       <div class="col-lg-3">
-        <%= form.text_field :neighbourhood, label: 'Bairro' %>
-      </div>
-      <div class="col-lg-3">
-        <%= form.text_field :country, label: 'País' %>
+        <%= form.text_field :neighborhood, label: 'Bairro' %>
       </div>
       <div>
         <% if user.new_record? %>
@@ -94,5 +91,32 @@
     $('#user_mobile02').unmask();
     $('#user_phone01').unmask();
     $('#user_phone02').unmask();
+  });
+
+  $(document).ready(function () {
+    var csrfToken = $('meta[name=csrf-token]').attr('content');
+    $('#user_zip_code').on('input', function () {
+      var zipCode = $(this).val();
+
+      if (/^\d{5}-\d{3}$/.test(zipCode)) {
+        $.ajax({
+          url: '<%= consulta_cep_path %>',
+          type: 'POST',
+          dataType: 'json',
+          data: { zip_code: zipCode },
+          headers: { 'X-CSRF-Token': csrfToken },
+          success: function (data) {
+            $('#user_address').val(data.address);
+            $('#user_neighborhood').val(data.neighborhood);
+            $('#user_city').val(data.city);
+            $('#user_state').val(data.state);
+            $('#user_zip_code').val(data.zipcode);
+          },
+          error: function (xhr, status, error) {
+            console.error('Erro na solicitação AJAX:', status, error);
+          }
+        });
+      }
+    });
   });
 </script>
