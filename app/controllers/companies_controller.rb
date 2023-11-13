@@ -3,7 +3,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies or /companies.json
   def index
-    @companies = Company.page(params[:page]).per(10)
+    @companies = Company.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   # GET /companies/1 or /companies/1.json

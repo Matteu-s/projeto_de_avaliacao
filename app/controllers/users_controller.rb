@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.page(params[:page]).per(10)
+    @users = User.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   # GET /users/1 or /users/1.json
@@ -34,10 +34,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    if params[:user][:password].blank? && params[:user][:confirmation_password].blank?
-      params[:user].delete(:password)
-      params[:user].delete(:password_confirmation)
-    end
+    password_blank?
 
     respond_to do |format|
       if @user.update(user_params)
@@ -58,6 +55,13 @@ class UsersController < ApplicationController
       format.html { redirect_to users_path, notice: 'Usuário excluído com sucesso!' }
       format.json { head :no_content }
     end
+  end
+
+  def password_blank?
+    return unless params[:user][:password].blank? && params[:user][:confirmation_password].blank?
+
+    params[:user].delete(:password)
+    params[:user].delete(:password_confirmation)
   end
 
   private

@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+address_data = Correios::CEP::AddressFinder.get('50860260')
 
-200.times do |i|
+200.times do
   User.create(
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -16,15 +17,50 @@
     cpf: Faker::Number.number(digits: 11),
     rg: Faker::Number.number(digits: 8),
     dob: DateTime.current - rand(1..99).year,
-    zip_code:,
-    address:,
-    address_number:,
-    state:, 
-    city:,
-    neighborhood:,
+    zip_code: address_data[:zipcode],
+    address: address_data[:address],
+    address_number: 74,
+    complement: 'mod 01. apt 304',
+    state: address_data[:state],
+    city: address_data[:city],
+    neighborhood: address_data[:neighborhood],
     mobile01: Faker::Number.number(digits: 11),
     mobile02: Faker::Number.number(digits: 11),
     phone01: Faker::Number.number(digits: 10),
     phone02: Faker::Number.number(digits: 10)
+  )
+end
+
+200.times do
+  Company.create(
+    name_fantasy: Faker::Company.name,
+    corporate_reason: Faker::Company.name,
+    cnpj: Faker::Number.number(digits: 14),
+    email: Faker::Internet.email,
+    zip_code: address_data[:zipcode],
+    address: address_data[:address],
+    address_number: 74,
+    complement: 'mod 01. apt 304',
+    state: address_data[:state],
+    city: address_data[:city],
+    neighborhood: address_data[:neighborhood],
+    mobile01: Faker::Number.number(digits: 11),
+    mobile02: Faker::Number.number(digits: 11),
+    phone01: Faker::Number.number(digits: 10),
+    phone02: Faker::Number.number(digits: 10)
+  )
+end
+
+200.times do
+  Equipment.create(
+    name: Faker::Game.title,
+    serial_number: Faker::Alphanumeric.alphanumeric(number: 10),
+    date_of_acquisition: DateTime.current - rand(1..24).months,
+    cost: rand(100.9999),
+    state: %i[available unavailable maintenance].sample,
+    last_maintenance: DateTime.current - rand(1..24).months,
+    current_responsible: Faker::Name.name,
+    delivery_date_responsible: DateTime.current,
+    company: Company.order('RANDOM()').first
   )
 end

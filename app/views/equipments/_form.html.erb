@@ -36,7 +36,7 @@
         <%= form.datetime_field :delivery_date_responsible, label: 'Data de Entrega ao Responsável' %>
       </div>
       <div class="col-lg-3">
-        <%= form.select :company_id, options_for_select(@companies_options, selected: @equipment.company_id), {}, class: 'form-control' %>
+        <%= form.select :company_id, options_for_select(@companies_options, selected: @equipment.company_id), {}, class: 'select2' %>
       </div>
       <div>
         <% if equipment.new_record? %>
@@ -48,3 +48,9 @@
     </div>
   </div>
 <% end %>
+
+<script>
+  $(document).ready(function() {
+    $('.select2').select2();
+  });
+</script>

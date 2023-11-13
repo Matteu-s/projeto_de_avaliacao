@@ -1,9 +1,11 @@
 class EquipmentsController < ApplicationController
+  include ApplicationHelper
+
   before_action :set_equipment, only: %i[show edit update destroy]
 
   # GET /equipments or /equipments.json
   def index
-    @equipments = Equipment.page(params[:page]).per(10)
+    @equipments = Equipment.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   # GET /equipments/1 or /equipments/1.json
@@ -67,7 +69,7 @@ class EquipmentsController < ApplicationController
 
   def companies_options
     Company.where(active: true).order(:corporate_reason).map do |company|
-      ["#{company.corporate_reason}(#{company.cnpj})", company.id]
+      [name_cnpj(company), company.id]
     end
   end
 
