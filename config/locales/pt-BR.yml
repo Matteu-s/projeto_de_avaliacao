@@ -1,5 +1,12 @@
 pt-BR:
   activerecord:
+    attributes:
+      equipment:
+        states:
+          available: "Disponível"
+          unavailable: "Indisponível"
+          maintenance: "Em manutenção"
+
     errors:
       models:
         user:
@@ -9,8 +16,9 @@ pt-BR:
             password:
               too_short: "é muito curta. O comprimento mínimo é %{count} caracteres"
               blank: "não pode ficar em branco"
-            email: 
-              taken: 'já está em uso'
+            email:
+              taken: "já está em uso"
+
   views:
     pagination:
       first: "&laquo; Primeira"

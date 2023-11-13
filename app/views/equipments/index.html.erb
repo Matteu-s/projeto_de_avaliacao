@@ -1,7 +1,6 @@
 <h1>Equipamentos</h1>
 <p style="color: green"><%= notice %></p>
 <%= link_to "Novo Equipamento", new_equipment_path, class: "btn btn-success" %>
-
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -20,7 +19,7 @@
         <tr>
           <td><%= equipment.name %></td>
           <td><%= equipment.serial_number %></td>
-          <td><%= equipment.state %></td>
+          <td><%= I18n.t("activerecord.attributes.equipment.states.#{equipment.state}") %></td>
           <td><%= equipment.current_responsible %></td>
           <td><%= name_cnpj(equipment.company) %></td>
           <td><%= date_formatted(equipment.created_at) %></td>
@@ -33,5 +32,5 @@
       <% end %>
     </tbody>
   </table>
+  <%= paginate @equipments %>
 </div>
-<%= paginate @equipments %>
