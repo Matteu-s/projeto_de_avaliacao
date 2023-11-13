@@ -17,7 +17,7 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create company" do
     assert_difference("Company.count") do
-      post companies_url, params: { company: { active: @company.active, address: @company.address, address_number: @company.address_number, city: @company.city, cnpj: @company.cnpj, complement: @company.complement, corporate_reason: @company.corporate_reason, country: @company.country, email: @company.email, mobile01: @company.mobile01, mobile02: @company.mobile02, name_fantasy: @company.name_fantasy, neighbourhood: @company.neighbourhood, phone01: @company.phone01, phone02: @company.phone02, state: @company.state, zip_code: @company.zip_code } }
+      post companies_url, params: { company: { active: @company.active, address: @company.address, address_number: @company.address_number, city: @company.city, cnpj: @company.cnpj, complement: @company.complement, corporate_reason: @company.corporate_reason, email: @company.email, mobile01: @company.mobile01, mobile02: @company.mobile02, name_fantasy: @company.name_fantasy, neighborhood: @company.neighborhood, phone01: @company.phone01, phone02: @company.phone02, state: @company.state, zip_code: @company.zip_code } }
     end
 
     assert_redirected_to company_url(Company.last)
@@ -34,7 +34,7 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update company" do
-    patch company_url(@company), params: { company: { active: @company.active, address: @company.address, address_number: @company.address_number, city: @company.city, cnpj: @company.cnpj, complement: @company.complement, corporate_reason: @company.corporate_reason, country: @company.country, email: @company.email, mobile01: @company.mobile01, mobile02: @company.mobile02, name_fantasy: @company.name_fantasy, neighbourhood: @company.neighbourhood, phone01: @company.phone01, phone02: @company.phone02, state: @company.state, zip_code: @company.zip_code } }
+    patch company_url(@company), params: { company: { active: @company.active, address: @company.address, address_number: @company.address_number, city: @company.city, cnpj: @company.cnpj, complement: @company.complement, corporate_reason: @company.corporate_reason, email: @company.email, mobile01: @company.mobile01, mobile02: @company.mobile02, name_fantasy: @company.name_fantasy, neighborhood: @company.neighborhood, phone01: @company.phone01, phone02: @company.phone02, state: @company.state, zip_code: @company.zip_code } }
     assert_redirected_to company_url(@company)
   end
 

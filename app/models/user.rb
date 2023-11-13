@@ -18,8 +18,7 @@
 #  complement             :string
 #  state                  :string
 #  city                   :string
-#  neighbourhood          :string
-#  country                :string
+#  neighborhood          :string
 #  mobile01               :string
 #  mobile02               :string
 #  phone01                :string

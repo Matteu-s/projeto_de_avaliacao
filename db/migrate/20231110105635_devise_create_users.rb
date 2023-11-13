@@ -25,7 +25,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :complement
       t.string :state
       t.string :city
-      t.string :neighbourhood
+      t.string :neighborhood
       t.string :country
       t.string :mobile01
       t.string :mobile02

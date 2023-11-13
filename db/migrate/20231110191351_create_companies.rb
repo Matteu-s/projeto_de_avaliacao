@@ -11,8 +11,7 @@ class CreateCompanies < ActiveRecord::Migration[7.0]
       t.string :complement
       t.string :state
       t.string :city
-      t.string :neighbourhood
-      t.string :country
+      t.string :neighborhood
       t.string :mobile01
       t.string :mobile02
       t.string :phone01

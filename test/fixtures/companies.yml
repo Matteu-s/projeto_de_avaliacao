@@ -13,8 +13,7 @@
 #  complement       :string
 #  state            :string
 #  city             :string
-#  neighbourhood    :string
-#  country          :string
+#  neighborhood    :string
 #  mobile01         :string
 #  mobile02         :string
 #  phone01          :string
@@ -35,8 +34,7 @@ one:
   complement: MyString
   state: MyString
   city: MyString
-  neighbourhood: MyString
-  country: MyString
+  neighborhood: MyString
   mobile01: MyString
   mobile02: MyString
   phone01: MyString
@@ -54,8 +52,7 @@ two:
   complement: MyString
   state: MyString
   city: MyString
-  neighbourhood: MyString
-  country: MyString
+  neighborhood: MyString
   mobile01: MyString
   mobile02: MyString
   phone01: MyString

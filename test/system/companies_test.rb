@@ -21,12 +21,11 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Cnpj", with: @company.cnpj
     fill_in "Complement", with: @company.complement
     fill_in "Corporate reason", with: @company.corporate_reason
-    fill_in "Country", with: @company.country
     fill_in "Email", with: @company.email
     fill_in "Mobile01", with: @company.mobile01
     fill_in "Mobile02", with: @company.mobile02
     fill_in "Name fantasy", with: @company.name_fantasy
-    fill_in "Neighbourhood", with: @company.neighbourhood
+    fill_in "neighborhood", with: @company.neighborhood
     fill_in "Phone01", with: @company.phone01
     fill_in "Phone02", with: @company.phone02
     fill_in "State", with: @company.state
@@ -48,12 +47,11 @@ class CompaniesTest < ApplicationSystemTestCase
     fill_in "Cnpj", with: @company.cnpj
     fill_in "Complement", with: @company.complement
     fill_in "Corporate reason", with: @company.corporate_reason
-    fill_in "Country", with: @company.country
     fill_in "Email", with: @company.email
     fill_in "Mobile01", with: @company.mobile01
     fill_in "Mobile02", with: @company.mobile02
     fill_in "Name fantasy", with: @company.name_fantasy
-    fill_in "Neighbourhood", with: @company.neighbourhood
+    fill_in "neighborhood", with: @company.neighborhood
     fill_in "Phone01", with: @company.phone01
     fill_in "Phone02", with: @company.phone02
     fill_in "State", with: @company.state
