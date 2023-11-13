@@ -96,31 +96,30 @@
     $('#company_phone02').unmask();
   });
 
- $(document).ready(function () {
-  var csrfToken = $('meta[name=csrf-token]').attr('content');
-  $('#company_zip_code').on('input', function () {
-    var zipCode = $(this).val();
+  $(document).ready(function () {
+    var csrfToken = $('meta[name=csrf-token]').attr('content');
+    $('#company_zip_code').on('input', function () {
+      var zipCode = $(this).val();
 
-    if (/^\d{5}-\d{3}$/.test(zipCode)) {
-      $.ajax({
-        url: '<%= consulta_cep_path %>',
-        type: 'POST',
-        dataType: 'json',
-        data: { zip_code: zipCode },
-        headers: { 'X-CSRF-Token': csrfToken },
-        success: function (data) {
-          console.log(data.neighborhood);
-          $('#company_address').val(data.address);
-          $('#company_neighborhood').val(data.neighborhood);
-          $('#company_city').val(data.city);
-          $('#company_state').val(data.state);
-          $('#company_zip_code').val(data.zipcode);
-        },
-        error: function (xhr, status, error) {
-          console.error('Erro na solicitação AJAX:', status, error);
-        }
-      });
-    }
+      if (/^\d{5}-\d{3}$/.test(zipCode)) {
+        $.ajax({
+          url: '<%= consulta_cep_path %>',
+          type: 'POST',
+          dataType: 'json',
+          data: { zip_code: zipCode },
+          headers: { 'X-CSRF-Token': csrfToken },
+          success: function (data) {
+            $('#company_address').val(data.address);
+            $('#company_neighborhood').val(data.neighborhood);
+            $('#company_city').val(data.city);
+            $('#company_state').val(data.state);
+            $('#company_zip_code').val(data.zipcode);
+          },
+          error: function (xhr, status, error) {
+            console.error('Erro na solicitação AJAX:', status, error);
+          }
+        });
+      }
+    });
   });
-});
 </script>
