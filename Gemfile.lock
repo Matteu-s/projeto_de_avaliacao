@@ -108,6 +108,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dockerfile-rails (1.5.12)
+      rails (>= 3.0.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.12.0)
@@ -246,6 +248,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sentry-rails (5.13.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.13.0)
+    sentry-ruby (5.13.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -295,6 +302,7 @@ DEPENDENCIES
   correios-cep
   debug
   devise (~> 4.9, >= 4.9.3)
+  dockerfile-rails (>= 1.5)
   faker
   importmap-rails
   jbuilder
@@ -305,6 +313,8 @@ DEPENDENCIES
   redis (~> 4.0)
   sassc-rails
   selenium-webdriver
+  sentry-rails (~> 5.13)
+  sentry-ruby (~> 5.13)
   sprockets-rails
   stimulus-rails
   turbo-rails
