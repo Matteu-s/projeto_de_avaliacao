@@ -6,6 +6,11 @@
   <div class="field">
     <%= form.password_field :password, autocomplete: "current-password", label: 'Senha', placeholder: "Senha" %>
   </div>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% elsif notice %>
+   <p class="alert alert-success"><%= notice %></p>
+  <% end %>
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= form.check_box :remember_me, label: 'Lembrar-me' %>
