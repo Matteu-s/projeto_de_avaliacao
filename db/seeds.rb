@@ -56,3 +56,24 @@ end
     company: Company.order('RANDOM()').first
   )
 end
+
+User.create(
+  name: 'Mateus Santos',
+  email: 'mateeussantoos@hotmail.com',
+  password: '123456',
+  password_confirmation: '123456',
+  cpf: Faker::Number.number(digits: 11),
+  rg: Faker::Number.number(digits: 8),
+  dob: DateTime.current - rand(1..99).year,
+  zip_code: address_data[:zipcode],
+  address: address_data[:address],
+  address_number: 74,
+  complement: 'mod 01. apt 304',
+  state: address_data[:state],
+  city: address_data[:city],
+  neighborhood: address_data[:neighborhood],
+  mobile01: Faker::Number.number(digits: 11),
+  mobile02: Faker::Number.number(digits: 11),
+  phone01: Faker::Number.number(digits: 10),
+  phone02: Faker::Number.number(digits: 10)
+)
