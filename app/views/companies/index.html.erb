@@ -20,9 +20,9 @@
             <td><%= short_id(company) %></td>
             <td><%= company.name_fantasy %></td>
             <td><%= company.corporate_reason %></td>
-            <td><%= cnpj_formatted(company.cnpj) %></td>
+            <td class="text-nowrap"><%= cnpj_formatted(company.cnpj) %></td>
             <td><%= date_formatted(company.created_at) %></td>
-            <td>
+            <td class="text-nowrap">
               <%= link_to "Exibir", company, class: "btn btn-primary btn-sm" %>
               <%= link_to "Editar", edit_company_path(company), class: "btn btn-warning btn-sm" %>
               <%= link_to 'Excluir', company, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza que deseja excluir?' }, class: "btn btn-danger btn-sm"%>

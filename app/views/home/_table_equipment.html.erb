@@ -1,0 +1,54 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Percente à</th>
+        <th>Status</th>
+        <% if defined?(last_registred_equipments) && last_registred_equipments.present? %>
+          <th>Criado em</th>
+        <% elsif defined?(more_expensives) && more_expensives.present? %>
+          <th>Custo</th>
+        <% elsif defined?(last_equipments_borrowed) && last_equipments_borrowed.present? %>
+          <th>Responsável</th>
+          <th>Entregue ao responsável em:</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% if defined?(last_registred_equipments) && last_registred_equipments.present? %>
+        <% last_registred_equipments.each do |equipment| %>
+          <tr>
+            <td class="text-nowrap"><%= link_to equipment.name, equipment %></td>
+            <td class="text-nowrap"><%= name_cnpj(equipment.company) %></td>
+            <td class="text-nowrap"><%= I18n.t("activerecord.attributes.equipment.states.#{equipment.state}") %></td>
+            <td><%= date_formatted(equipment.created_at) %></td>
+          </tr>
+        <% end %>
+      <% elsif defined?(more_expensives) && more_expensives.present? %>
+        <% more_expensives.each do |equipment| %>
+          <tr>
+            <td class="text-nowrap"><%= link_to equipment.name, equipment %></td>
+            <td class="text-nowrap"><%= name_cnpj(equipment.company) %></td>
+            <td class="text-nowrap"><%= I18n.t("activerecord.attributes.equipment.states.#{equipment.state}") %></td>
+            <td class="text-nowrap"><%= money_formatted(equipment.cost) %></td>
+          </tr>
+        <% end %>
+      <% elsif defined?(last_equipments_borrowed) && last_equipments_borrowed.present? %>
+        <% last_equipments_borrowed.each do |equipment| %>
+          <tr>
+            <td class="text-nowrap"><%= link_to equipment.name, equipment %></td>
+            <td class="text-nowrap"><%= name_cnpj(equipment.company) %></td>
+            <td class="text-nowrap"><%= I18n.t("activerecord.attributes.equipment.states.#{equipment.state}") %></td>
+            <td class="text-nowrap"><%= equipment.current_responsible %></td>
+            <td class="text-nowrap"><%= datetime_formatted(equipment.delivery_date_responsible) %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td>Equipamento não encontrado</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

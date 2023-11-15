@@ -11,7 +11,7 @@
           <th>Número de Série</th>
           <th>Status</th>
           <th>Responsável Atual</th>
-          <th>Percente a</th>
+          <th>Percente à</th>
           <th>Criado em</th>
           <th></th>
         </tr>
@@ -22,11 +22,11 @@
             <td><%= short_id(equipment) %></td>
             <td><%= equipment.name %></td>
             <td><%= equipment.serial_number %></td>
-            <td><%= I18n.t("activerecord.attributes.equipment.states.#{equipment.state}") %></td>
+            <td class="text-nowrap"><%= I18n.t("activerecord.attributes.equipment.states.#{equipment.state}") %></td>
             <td><%= equipment.current_responsible %></td>
-            <td><%= name_cnpj(equipment.company) %></td>
+            <td class="text-nowrap"><%= name_cnpj(equipment.company) %></td>
             <td><%= date_formatted(equipment.created_at) %></td>
-            <td>
+            <td class="text-nowrap">
               <%= link_to "Exibir", equipment, class: "btn btn-primary btn-sm" %>
               <%= link_to "Editar", edit_equipment_path(equipment), class: "btn btn-warning btn-sm" %>
               <%= link_to 'Excluir', equipment, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-sm"%>

@@ -1,0 +1,35 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <% if defined?(last_registred_companies) && last_registred_companies.present? %>
+          <th>Criado em</th>
+        <% elsif defined?(with_most_equipments) && with_most_equipments.present? %>
+          <th>Equipamentos</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% if defined?(last_registred_companies) && last_registred_companies.present? %>
+        <% last_registred_companies.each do |company| %>
+          <tr>
+            <td class="text-nowrap"><%= link_to name_cnpj(company), company %></td>
+            <td><%= date_formatted(company.created_at) %></td>
+          </tr>
+        <% end %>
+      <% elsif defined?(with_most_equipments) && with_most_equipments.present? %>
+        <% with_most_equipments.each do |company| %>
+          <tr>
+            <td class="text-nowrap"><%= link_to "#{company.corporate_reason} <#{cnpj_formatted(company.cnpj)}>", company.id %></td>
+            <td class="text-center"><%= company.equipments_count %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td>Empresa não encontrada</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

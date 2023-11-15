@@ -2,11 +2,12 @@ class HomeController < ApplicationController
   include ApplicationHelper
 
   def index
-    @companies = Company.where(active: true).order(:corporate_reason).map do |company|
+    @companies = Company.order(:corporate_reason).map do |company|
       [name_cnpj(company), company.id]
     end
     load_users
     load_companies
+    load_equipments
   end
 
   def load_data
@@ -20,6 +21,8 @@ class HomeController < ApplicationController
 
     respond_to do |format|
       format.json do
+        return {} if equipments.blank?
+
         render json: {
           count_equipments_available: @count_equipments_available,
           count_equipments_unavailable: @count_equipments_unavailable,
@@ -38,7 +41,9 @@ class HomeController < ApplicationController
     users = User.all
     @users_active = users.where(active: true).count
     @users_inactive = users.where(active: false).count
-    @five_last_users = users.last(5)
+    @users_who_accessed = users.where.not(sign_in_count: 0).count
+    @users_who_not_accessed = users.where(sign_in_count: 0).count
+    @last_registred_users = users.last(5)
     @users_with_most_access = users.order(sign_in_count: :desc).limit(5)
   end
 
@@ -46,12 +51,23 @@ class HomeController < ApplicationController
     companies = Company.all
     @companies_active = companies.where(active: true).count
     @companies_inactive = companies.where(active: false).count
-    @five_last_companies = companies.last(5)
-    @with_most_equipments = companies.where(active: true).select('companies.id, companies.corporate_reason, companies.cnpj,
-                                                              COUNT(equipments.id) AS equipments_count')
+    @with_equipments = companies.joins(:equipments).distinct.count
+    @without_equipments = companies.count - @with_equipments
+    @last_registred_companies = companies.last(5)
+    @with_most_equipments = companies.select('companies.id, companies.corporate_reason, companies.cnpj,
+                                              COUNT(equipments.id) AS equipments_count')
                                      .joins(:equipments)
                                      .group('companies.id')
                                      .order('equipments_count DESC')
                                      .limit(5)
+  end
+
+  def load_equipments
+    equipments = Equipment.all
+    @last_registred_equipments = equipments.last(5)
+    @more_expensives = equipments.order(cost: :desc).limit(5)
+    @last_equipments_borrowed = equipments.where.not(current_responsible: nil)
+                                          .order(delivery_date_responsible: :desc)
+                                          .limit(5)
   end
 end

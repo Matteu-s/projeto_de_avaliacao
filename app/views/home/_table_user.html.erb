@@ -1,0 +1,35 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <% if defined?(last_registred_users) && last_registred_users.present? %>
+          <th>Criado em</th>
+        <% elsif defined?(users_with_most_access) && users_with_most_access.present? %>
+          <th>Acessos</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% if defined?(last_registred_users) && last_registred_users.present? %>
+        <% last_registred_users.each do |user| %>
+          <tr>
+            <td class="text-nowrap"><%= link_to name_email(user), user %></td>
+            <td><%= date_formatted(user.created_at) %></td>
+          </tr>
+        <% end %>
+      <% elsif defined?(users_with_most_access) && users_with_most_access.present? %>
+        <% users_with_most_access.each do |user| %>
+          <tr>
+            <td class="text-nowrap"><%= link_to name_email(user), user %></td>
+            <td class="text-center"><%= user.sign_in_count %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td>Equipamento não encontrado</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
