@@ -27,7 +27,7 @@ class AddData < ActiveRecord::Migration[7.0]
       )
     end
 
-    200.times do
+    50.times do
       Company.create(
         name_fantasy: Faker::Company.name,
         corporate_reason: Faker::Company.name,
@@ -48,7 +48,7 @@ class AddData < ActiveRecord::Migration[7.0]
       )
     end
 
-    200.times do
+    1000.times do
       Equipment.create(
         name: Faker::Game.title,
         serial_number: Faker::Alphanumeric.alphanumeric(number: 10),

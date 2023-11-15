@@ -57,6 +57,12 @@ module ApplicationHelper
     "#{company.corporate_reason} <#{cnpj}>"
   end
 
+  def name_email(user)
+    return '' if user.name.blank? || user.email.blank?
+
+    "#{user.name} <#{user.email}>"
+  end
+
   def money_formatted(money)
     number_to_currency(money, unit: 'R$', separator: ',', delimiter: '.', format: '%u %n')
   end

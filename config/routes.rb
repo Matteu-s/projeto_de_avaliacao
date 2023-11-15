@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :users
   post '/consulta_cep', to: 'consulta_cep#consulta_cep'
+  get '/load_data', to: 'home#load_data'
 end
