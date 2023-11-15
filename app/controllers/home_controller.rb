@@ -21,7 +21,7 @@ class HomeController < ApplicationController
 
     respond_to do |format|
       format.json do
-        return {} if equipments.blank?
+        return render json: { equipment: nil } if equipments.blank?
 
         render json: {
           count_equipments_available: @count_equipments_available,

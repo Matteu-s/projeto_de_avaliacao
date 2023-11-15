@@ -21,7 +21,7 @@
       <% elsif defined?(with_most_equipments) && with_most_equipments.present? %>
         <% with_most_equipments.each do |company| %>
           <tr>
-            <td class="text-nowrap"><%= link_to "#{company.corporate_reason} <#{cnpj_formatted(company.cnpj)}>", company.id %></td>
+            <td class="text-nowrap"><%= link_to "#{company.corporate_reason} <#{cnpj_formatted(company.cnpj)}>", company_path(company.id) %></td>
             <td class="text-center"><%= company.equipments_count %></td>
           </tr>
         <% end %>

@@ -23,7 +23,7 @@
     <div class="col-md-2 d-flex align-items-stretch">
       <div class="card">
         <div class="card-header">Usuários:</div>
-        <div class="card-body">
+        <div class="card-body text-nowrap">
           <p class="card-text">Ativos: <%= @users_active %></p>
           <p class="card-text">Inativos: <%= @users_inactive %></p>
           <p class="card-text">Já acessaram: <%= @users_who_accessed %></p>
@@ -55,34 +55,32 @@
     <div class="col-md-2 d-flex align-items-stretch">
       <div class="card">
         <div class="card-header">Empresas:</div>
-        <div class="card-body">
+        <div class="card-body text-nowrap">
           <p class="card-text">Ativas: <%= @companies_active %></p>
           <p class="card-text">Inativas: <%= @companies_inactive %></p>
-          <p class="card-text text-nowrap">Com equipamentos: <%= @with_equipments %></p>
-          <p class="card-text text-nowrap">Sem equipamentos: <%= @without_equipments %></p>
+          <p class="card-text">Com equipamentos: <%= @with_equipments %></p>
+          <p class="card-text">Sem equipamentos: <%= @without_equipments %></p>
         </div>
       </div>
     </div>
-    <%= bootstrap_form_tag url: root_path, method: :get do |form| %>
-      <div class="col-12 mt-4">
+    <div class="col-md-12 mt-4">
+      <%= bootstrap_form_tag url: root_path, method: :get do |form| %>
         <%= form.select :company, options_for_select(@companies), { label: "Empresa" }, class: 'form-control', id: 'company-select' %>
-      </div>
-    <% end %>
-  </div>
-  <div class="col-md-12">
-    <div class="card">
-      <div class="card-header">Equipamentos:</div>
-      <div class="card-body" id="equipments">
-        <div class="row">
-          <div class="col-6">
-            <p class="card-text" id="equipments-available"></p>
-            <p class="card-text" id="equipments-unavailable"></p>
-            <p class="card-text" id="equipments-maintenance"></p>
-          </div>
-          <div class="col-6">
-            <p class="card-text" id="equipment-more-expensive"></p>
-            <p class="card-text" id="equipment-less-expensive"></p>
-            <p class="card-text" id="equipments-average-cost"></p>
+      <% end %>
+      <div class="card">
+        <div class="card-header">Equipamentos:</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6">
+              <p class="card-text" id="equipments-available"></p>
+              <p class="card-text" id="equipments-unavailable"></p>
+              <p class="card-text" id="equipments-maintenance"></p>
+            </div>
+            <div class="col-6">
+              <p class="card-text" id="equipment-more-expensive"></p>
+              <p class="card-text" id="equipment-less-expensive"></p>
+              <p class="card-text" id="equipments-average-cost"></p>
+            </div>
           </div>
         </div>
       </div>
@@ -134,10 +132,15 @@
       data: { id: selectedCompany },
       success: function(response) {
         console.log(response);
-          if (!response) {
-            $('#equipments').text('Não existe equipamento vinculado');
-            return;
-          }
+        if (response.equipment ===  null) {
+          updateElementText('#equipments-available', 'Não existe equipamento vinculado');
+          updateElementText('#equipments-unavailable', '');
+          updateElementText('#equipments-maintenance', '');
+          updateElementText('#equipment-less-expensive', '');
+          updateElementText('#equipment-more-expensive', '');
+          updateElementText('#equipments-average-cost', '');
+          return;
+        }
 
         updateElementText('#equipments-available', 'Equipamentos disponíveis: ' + response.count_equipments_available);
         updateElementText('#equipments-unavailable', 'Equipamentos indisponíveis: ' + response.count_equipments_unavailable);
