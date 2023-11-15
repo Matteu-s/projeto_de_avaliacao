@@ -18,6 +18,8 @@
 class Equipment < ApplicationRecord
   belongs_to :company
 
+  validates :name, presence: true
+
   enum state: {
     available: 0,
     unavailable: 1,

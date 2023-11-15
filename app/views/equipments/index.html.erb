@@ -8,7 +8,6 @@
         <tr>
           <th>ID</th>
           <th>Nome</th>
-          <th>Número de Série</th>
           <th>Status</th>
           <th>Percente à</th>
           <th>Responsável Atual</th>
@@ -21,9 +20,8 @@
           <tr>
             <td><%= short_id(equipment) %></td>
             <td><%= equipment.name %></td>
-            <td><%= equipment.serial_number %></td>
             <td class="text-nowrap"><%= I18n.t("activerecord.attributes.equipment.states.#{equipment.state}") %></td>
-            <td class="text-nowrap"><%= name_cnpj(equipment.company) %></td>
+            <td><%= name_cnpj(equipment.company) %></td>
             <td><%= equipment.current_responsible %></td>
             <td><%= date_formatted(equipment.created_at) %></td>
             <td class="text-nowrap">
