@@ -51,5 +51,12 @@
 <script>
   $(document).ready(function() {
     $('.select2').select2();
+    $("#equipment_cost").maskMoney({
+        prefix: 'R$ ', thousands: '.', decimal: ','
+    });
   });
+  $('form').submit(function() {
+      var unmaskedValue = $('#equipment_cost').maskMoney('unmasked')[0];
+      $('#equipment_cost').val(unmaskedValue);
+    });
 </script>

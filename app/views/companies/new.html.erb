@@ -1,6 +1,7 @@
-<h1>Nova Empresa</h1>
-<%= render "form", company: @company %>
-<br>
-<div>
+<div class="container mt-4">
+  <h1>Nova Empresa</h1>
+  <%= render "form", company: @company %>
+</div>
+<div class="container mt-4">
   <%= link_to "Voltar para empresas", companies_path, class: 'btn btn-secondary' %>
 </div>

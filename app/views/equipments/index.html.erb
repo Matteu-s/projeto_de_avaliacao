@@ -1,36 +1,40 @@
-<h1>Equipamentos</h1>
-<p style="color: green"><%= notice %></p>
-<%= link_to "Novo Equipamento", new_equipment_path, class: "btn btn-success" %>
-<div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Número de Série</th>
-        <th>Status</th>
-        <th>Responsável Atual</th>
-        <th>Percente a</th>
-        <th>Criado em</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @equipments.each do |equipment| %>
+<div class="container mt-4">
+  <h1>Equipamentos</h1>
+  <p style="color: green"><%= notice %></p>
+  <%= link_to "Novo Equipamento", new_equipment_path, class: "btn btn-success" %>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td><%= equipment.name %></td>
-          <td><%= equipment.serial_number %></td>
-          <td><%= I18n.t("activerecord.attributes.equipment.states.#{equipment.state}") %></td>
-          <td><%= equipment.current_responsible %></td>
-          <td><%= name_cnpj(equipment.company) %></td>
-          <td><%= date_formatted(equipment.created_at) %></td>
-          <td>
-            <%= link_to "Exibir", equipment, class: "btn btn-primary btn-sm" %>
-            <%= link_to "Editar", edit_equipment_path(equipment), class: "btn btn-warning btn-sm" %>
-            <%= link_to 'Excluir', equipment, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-sm"%>
-          </td>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Número de Série</th>
+          <th>Status</th>
+          <th>Responsável Atual</th>
+          <th>Percente a</th>
+          <th>Criado em</th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @equipments.each do |equipment| %>
+          <tr>
+            <td><%= short_id(equipment) %></td>
+            <td><%= equipment.name %></td>
+            <td><%= equipment.serial_number %></td>
+            <td><%= I18n.t("activerecord.attributes.equipment.states.#{equipment.state}") %></td>
+            <td><%= equipment.current_responsible %></td>
+            <td><%= name_cnpj(equipment.company) %></td>
+            <td><%= date_formatted(equipment.created_at) %></td>
+            <td>
+              <%= link_to "Exibir", equipment, class: "btn btn-primary btn-sm" %>
+              <%= link_to "Editar", edit_equipment_path(equipment), class: "btn btn-warning btn-sm" %>
+              <%= link_to 'Excluir', equipment, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger btn-sm"%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
   <%= paginate @equipments %>
 </div>

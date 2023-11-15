@@ -1,7 +1,9 @@
-<h1>Usuário: <%= @user.name %></h1>
-<p style="color: green"><%= notice %></p>
-<%= render @user %>
-<div>
+<div class="container mt-4">
+  <h1>Usuário: <%= @user.name %></h1>
+  <p style="color: green"><%= notice %></p>
+  <%= render @user %>
+</div>
+<div class="container mt-4">
   <%= link_to "Voltar para usuários", users_path, class: 'btn btn-secondary' %> |
   <%= link_to "Editar usuário", edit_user_path(@user), class: 'btn btn-warning' %> |
   <%= link_to 'Excluir usuário', @user, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger"%>

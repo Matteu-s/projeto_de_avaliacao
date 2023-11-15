@@ -1,7 +1,8 @@
-<h1>Editar Usuário</h1>
-<%= render "form", user: @user %>
-<br>
-<div>
+<div class="container mt-4">
+  <h1>Editar Usuário</h1>
+  <%= render "form", user: @user %>
+</div>
+<div class="container mt-4">
   <%= link_to "Voltar para usuários", users_path, class: 'btn btn-secondary' %> |
   <%= link_to "Exibir Usuário", @user, class: 'btn btn-primary' %>
 </div>

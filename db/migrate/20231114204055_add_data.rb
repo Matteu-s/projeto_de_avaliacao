@@ -22,7 +22,8 @@ class AddData < ActiveRecord::Migration[7.0]
         mobile01: Faker::Number.number(digits: 11),
         mobile02: Faker::Number.number(digits: 11),
         phone01: Faker::Number.number(digits: 10),
-        phone02: Faker::Number.number(digits: 10)
+        phone02: Faker::Number.number(digits: 10),
+        active: %i[true false].sample
       )
     end
 
@@ -42,7 +43,8 @@ class AddData < ActiveRecord::Migration[7.0]
         mobile01: Faker::Number.number(digits: 11),
         mobile02: Faker::Number.number(digits: 11),
         phone01: Faker::Number.number(digits: 10),
-        phone02: Faker::Number.number(digits: 10)
+        phone02: Faker::Number.number(digits: 10),
+        active: %i[true false].sample
       )
     end
 
@@ -51,7 +53,7 @@ class AddData < ActiveRecord::Migration[7.0]
         name: Faker::Game.title,
         serial_number: Faker::Alphanumeric.alphanumeric(number: 10),
         date_of_acquisition: DateTime.current - rand(1..24).months,
-        cost: rand(100.9999),
+        cost: rand(10000.999999),
         state: %i[available unavailable maintenance].sample,
         last_maintenance: DateTime.current - rand(1..24).months,
         current_responsible: Faker::Name.name,

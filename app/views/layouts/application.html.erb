@@ -14,6 +14,10 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   </head>
   <body>
     <%= render 'layouts/change_theme' %>
@@ -22,16 +26,16 @@
         <% if current_user %>
           <%= render 'layouts/sidebar' %>
           <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <%= render 'layouts/topnavbar' %>
             <%= yield %>
+            <%= render 'layouts/footer' %>
           </main>
         <% else %>
           <main class="form-signin w-100 m-auto">
             <%= yield %>
+            <%= render 'layouts/footer' %>
           </main>
         <% end %>
       </div>
     </div>
-    <%= render 'layouts/footer' %>
   </body>
 </html>

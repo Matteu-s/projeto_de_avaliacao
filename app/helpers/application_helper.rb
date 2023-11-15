@@ -56,4 +56,22 @@ module ApplicationHelper
 
     "#{company.corporate_reason} <#{cnpj}>"
   end
+
+  def money_formatted(money)
+    number_to_currency(money, unit: 'R$', separator: ',', delimiter: '.', format: '%u %n')
+  end
+
+  def short_id(object)
+    content_tag(:span,
+                object.id.split('-').last,
+                class: 'copy',
+                style: 'cursor:context-menu;',
+                data: {
+                  toggle: 'popover',
+                  trigger: 'hover',
+                  html: true,
+                  content: 'Clique para copiar',
+                  'clipboard-text': object.id
+                })
+  end
 end

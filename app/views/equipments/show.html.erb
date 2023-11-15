@@ -1,7 +1,9 @@
-<h1>Equipamento: <%= @equipment.name %></h1>
-<p style="color: green"><%= notice %></p>
-<%= render @equipment %>
-<div>
+<div class="container mt-4">
+  <h1>Equipamento: <%= @equipment.name %></h1>
+  <p style="color: green"><%= notice %></p>
+  <%= render @equipment %>
+</div>
+<div class="container mt-4">
   <%= link_to "Voltar para equipamentos", equipments_path, class: 'btn btn-secondary' %> |
   <%= link_to "Editar equipamento", edit_equipment_path(@equipment), class: 'btn btn-warning' %> |
   <%= link_to 'Excluir equipamento', @equipment, data: {turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "btn btn-danger"%>

@@ -1,71 +1,68 @@
 <div id="<%= dom_id user %>">
-  <div class="ibox-content">
-    <div class="row">
-      <div class="col-lg-3">
-        <h5>Nome:</h5>
-        <%= user.name %>
-      </div>
-      <div class="col-lg-3">
-        <h5>E-mail:</h5>
-        <%= user.email %>
-      </div>
-      <div class="col-lg-3">
-        <h5>CPF:</h5>
-        <%= cpf_formatted(user.cpf) %>
-      </div>
-      <div class="col-lg-3">
-        <h5>RG:</h5>
-        <%= user.rg %>
-      </div>
-      <div class="col-lg-3">
-        <h5>Data de Nascimento:</h5>
-        <%= date_formatted(user.dob) %>
-      </div>
-      <div class="col-lg-3">
-        <h5>Celular 1:</h5>
-        <%= mobile_formatted(user.mobile01) %>
-      </div>
-      <div class="col-lg-3">
-        <h5>Celular 2:</h5>
-        <%= mobile_formatted(user.mobile02) %>
-      </div>
-      <div class="col-lg-3">
-        <h5>Telefone 1:</h5>
-        <%= phone_formatted(user.phone01) %>
-      </div>
-      <div class="col-lg-3">
-        <h5>Telefone 2:</h5>
-        <%= phone_formatted(user.phone02) %>
-      </div>
-      <div class="col-lg-3">
-        <h5>CEP:</h5>
-        <%= zip_code_formatted(user.zip_code) %>
-      </div>
-      <div class="col-lg-3">
-        <h5>Endereço:</h5>
-        <%= user.address %>
-      </div>
-      <div class="col-lg-3">
-        <h5>Número:</h5>
-        <%= user.address_number %>
-      </div>
-      <div class="col-lg-3">
-        <h5>Complemento:</h5>
-        <%= user.complement %>
-      </div>
-      <div class="col-lg-3">
-        <h5>Estado:</h5>
-        <%= user.state %>
-      </div>
-      <div class="col-lg-3">
-        <h5>Cidade:</h5>
-        <%= user.city %>
-      </div>
-      <div class="col-lg-3">
-        <h5>Bairro:</h5>
-        <%= user.neighborhood %>
-      </div>
+  <div class="row">
+    <div class="col-lg-3">
+      <h5>Nome:</h5>
+      <%= user.name %>
+    </div>
+    <div class="col-lg-3">
+      <h5>E-mail:</h5>
+      <%= user.email %>
+    </div>
+    <div class="col-lg-3">
+      <h5>CPF:</h5>
+      <%= cpf_formatted(user.cpf) %>
+    </div>
+    <div class="col-lg-3">
+      <h5>RG:</h5>
+      <%= user.rg %>
+    </div>
+    <div class="col-lg-3">
+      <h5>Data de Nascimento:</h5>
+      <%= date_formatted(user.dob) %>
+    </div>
+    <div class="col-lg-3">
+      <h5>Celular 1:</h5>
+      <%= mobile_formatted(user.mobile01) %>
+    </div>
+    <div class="col-lg-3">
+      <h5>Celular 2:</h5>
+      <%= mobile_formatted(user.mobile02) %>
+    </div>
+    <div class="col-lg-3">
+      <h5>Telefone 1:</h5>
+      <%= phone_formatted(user.phone01) %>
+    </div>
+    <div class="col-lg-3">
+      <h5>Telefone 2:</h5>
+      <%= phone_formatted(user.phone02) %>
+    </div>
+    <div class="col-lg-3">
+      <h5>CEP:</h5>
+      <%= zip_code_formatted(user.zip_code) %>
+    </div>
+    <div class="col-lg-3">
+      <h5>Endereço:</h5>
+      <%= user.address %>
+    </div>
+    <div class="col-lg-3">
+      <h5>Número:</h5>
+      <%= user.address_number %>
+    </div>
+    <div class="col-lg-3">
+      <h5>Complemento:</h5>
+      <%= user.complement %>
+    </div>
+    <div class="col-lg-3">
+      <h5>Estado:</h5>
+      <%= user.state %>
+    </div>
+    <div class="col-lg-3">
+      <h5>Cidade:</h5>
+      <%= user.city %>
+    </div>
+    <div class="col-lg-3">
+      <h5>Bairro:</h5>
+      <%= user.neighborhood %>
     </div>
   </div>
 </div>
-
